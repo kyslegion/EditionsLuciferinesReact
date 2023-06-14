@@ -39,15 +39,16 @@ app.get('/livres/:id', (req, res) => {
 });
 app.get('/auteurs', (req, res) => {
   Auteurs.findAll()
-    .then(livres => {
-      const livresObjets = livres.map(livre => livre.toJSON());
-      res.json(livresObjets);
+    .then(auteurs => {
+      const auteursObjets = auteurs.map(auteur => auteur.toJSON());
+      res.json(auteursObjets);
     })
     .catch(err => {
       console.error('Erreur lors de la récupération des éléments:', err);
       res.status(500).json({ message: 'Erreur lors de la récupération des éléments.' });
     });
 });
+
 app.get('/auteurs/:id', (req, res) => {
   const id = req.params.id;
   Auteurs.findByPk(id)

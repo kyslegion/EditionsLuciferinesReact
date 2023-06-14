@@ -36,7 +36,7 @@ export default function Layout({ children, changeState2 }) {
   return (
     <div>
       <header>
-        <h1 onClick={changeState2}>Mon Application</h1>
+        <h1 onClick={changeState2}>Éditions Luciférines</h1>
         <p onClick={toggleShowPanier}>Panier:</p>
         <ul>
           {showPanier && (
@@ -48,18 +48,20 @@ export default function Layout({ children, changeState2 }) {
                   <button id='removeButton' onClick={() => removeFromPanier(element.ID)}>Supprimer</button>
                 </li>
               ))}
-            </>
-          )}
-        </ul>
-        <Link to={{ pathname: "/Achat", state: { panier } }}>
+               <Link to={{ pathname: "/Achat", state: { panier } }}>
           <button id="achatButton" onClick={handleAchat}>Acheter</button>
         </Link>
+            </>
+          )}
+         
+        </ul>
+        
       </header>
 
       <main>{children}</main>
 
       <footer>
-        <p>© 2023 Mon Application</p>
+        <p>© 2023 Éditions Luciférines</p>
       </footer>
     </div>
   );

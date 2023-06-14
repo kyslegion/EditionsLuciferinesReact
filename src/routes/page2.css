@@ -13,3 +13,9 @@ img{
 td{
    
 }
+#paypal-button-container{
+    grid-row: 2;
+    grid-column: 3/7;
+    text-align: center;
+    width: 50vw;
+  }

@@ -1,4 +1,10 @@
-
+@media screen and (max-width: 768px) {
+	#Livres ul{
+		margin: 0;
+		padding: 0;
+		display: unset !important;
+	}
+  }
 #Livres{
 
 }

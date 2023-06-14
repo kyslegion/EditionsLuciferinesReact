@@ -19,6 +19,7 @@ export default function GestionnaireJson({ Data }) {
                 });
                 
                 let auteurs = await Promise.all(auteursPromises);
+                auteurs.sort((a, b) => a.PrenomNom.localeCompare(b.PrenomNom));
                 setAuteurs(auteurs);
                 
             } catch (error) {
