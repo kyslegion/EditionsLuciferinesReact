@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ajouter des éléments à LivresAuteurs</title>
+</head>
+<body>
+  <h1>Ajouter des éléments à LivresAuteurs</h1>
+  
+  <form id="myForm">
+    <label for="livreID">ID du livre :</label>
+    <input type="text" id="livreID" name="livreID"><br><br>
+    
+    <label for="auteurID">ID(s) de(s) auteur(s) (séparés par des virgules) :</label>
+    <input type="text" id="auteurID" name="auteurID"><br><br>
+    
+    <button type="submit">Ajouter</button>
+  </form>
+  
+  <script>
+    // Écouteur d'événement pour soumettre le formulaire
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Empêcher le rechargement de la page
+      
+      // Récupérer les valeurs des champs du formulaire
+      var livreID = document.getElementById("livreID").value;
+      var auteurIDs = document.getElementById("auteurID").value.split(",");
+      
+      // Appeler la fonction pour générer les commandes SQL d'insertion
+      var commandesSQL = genererCommandesSQL(livreID, auteurIDs);
+      
+      // Afficher les commandes SQL résultantes dans une boîte de dialogue
+      alert(commandesSQL);
+      
+      // Réinitialiser les champs du formulaire
+      document.getElementById("livreID").value = "";
+      document.getElementById("auteurID").value = "";
+    });
+    
+    // Fonction pour générer les commandes SQL d'insertion
+    function genererCommandesSQL(livreID, auteurIDs) {
+      var commandesSQL = "";
+      
+      // Générer la commande SQL pour chaque ID d'auteur
+      for (var i = 0; i < auteurIDs.length; i++) {
+        var auteurID = auteurIDs[i].trim();
+        
+        // Ignorer les ID d'auteur vides
+        if (auteurID !== "") {
+          var commande = "INSERT INTO LivresAuteurs (LivreID, AuteurID) VALUES (" + livreID + ", " + auteurID + ");\n";
+          commandesSQL += commande;
+        }
+      }
+      
+      return commandesSQL;
+    }
+  </script>
+</body>
+</html>
+11,
+25,
+15,
+17,
+7,
+23,
+21,
+27,
+28,
+30,
+39,
+6,
+4,
+35,
+24,
+10,
+32,
+29
