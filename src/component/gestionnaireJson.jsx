@@ -46,8 +46,13 @@ export default function GestionnaireJson({ Data }) {
             </ul>
             {auteurSelected && 
                 <div ref={detailsRef} id="auteursDetails">
-                     <img id='photo' src={"assets/Auteurs/"+ auteurSelected.Photo} />
-                    <div>{auteurSelected.Presentation}</div> 
+                    <ul id='auteurHeader'>
+                        <li><img id='photo' src={"assets/Auteurs/"+ auteurSelected.Photo} /></li>
+                        <li><h2>{auteurSelected.PrenomNom}</h2> </li>
+                    </ul >
+                     
+                     
+                    <div id="auteurBody" >{auteurSelected.Presentation}</div> 
                 </div>
             }
         </>

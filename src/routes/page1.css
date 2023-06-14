@@ -125,6 +125,11 @@ opacity: 0.9;
     display: flex;
 	flex-direction: column;
 }
+
+#auteurHeader{
+	display: flex;
+}
+
 #photo{
     width: 20vw;
 }

@@ -2,9 +2,27 @@ main{
     padding-inline: 5%;
 }
 #removeButton{
-    width: 10% !important;
-    height: 0% !important;
+    /* width: 10% !important;
+    height: 0% !important; */
 }
 #achatButton{
     width: 100%;
+}
+header{
+    padding-inline: 5%;
+    display: flex;
+    justify-content: center;
+}
+footer{
+    padding-inline: 5%;
+}
+svg{
+    width: 20vw;
+    height: 20vw;
+}
+#cart{
+    /* display: flex; */
+    justify-content: center;
+    padding-block: 5%;
+margin-block: 5%;
 }
