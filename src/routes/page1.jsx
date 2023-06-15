@@ -7,11 +7,10 @@ import GestionnaireJson from '../component/gestionnaireJson';
 
 
 
-function Page1() {
+function Page1({ panier, setPanier }) {
   const [visible,setVisible]=useState(true);
   const [selectedData, setselectedData] = useState(null); 
-  const [panier, setPanier] = useState([]);
-
+  // const [panier, setPanier] = useState([]);
   useEffect(() => {
     const panierData = localStorage.getItem('panier');
     if (panierData) {

@@ -7,22 +7,57 @@ main{
 }
 #achatButton{
     width: 100%;
+    display: flex;
+}
+#achatButton button{
+    width: 100%;
 }
 header{
     padding-inline: 5%;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
+    padding-block: 5%;
 }
 footer{
     padding-inline: 5%;
 }
 svg{
-    width: 20vw;
+    width: 12vw;
     height: 20vw;
 }
-#cart{
-    /* display: flex; */
-    justify-content: center;
-    padding-block: 5%;
-margin-block: 5%;
+#cart {
+	display: flex;
+	justify-content: center;
+	/* padding-block: 5%; */
+	margin-block: 5%;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0;
+}
+#cart-count {
+	background-color: #FFD140;
+	width: 11vw;
+	height: 6vw;
+	display: flex;
+	/* position: relative; */
+	justify-content: center;
+	/* left: 41%; */
+	/* top: 34%; */
+	/* border-radius: 79%; */
+	border-top: 81%;
+	border-bottom-left-radius: 5%;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	align-items: center;
+	position: absolute;
+	transform: translate(25%,-50%);
+}
+#headerTitle{
+    display: flex;
+flex-direction: row-reverse;
+font-family: roboto;
+}
+#headerTitle img{
+    width: 50%;
 }

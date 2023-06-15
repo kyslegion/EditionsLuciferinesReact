@@ -5,20 +5,17 @@ export default function BookDetails({ Data, addToCart }) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   const handleAddToCart = () => {
-    // Récupérer l'état actuel du panier
     let currentPanier = JSON.parse(localStorage.getItem('panier')) || [];
- // Vérifiez si currentPanier est un tableau. Sinon, initialisez-le comme un tableau vide
-  if (!Array.isArray(currentPanier)) {
-    currentPanier = [];
-  }
-    // Ajouter le nouveau livre au panier
+    if (!Array.isArray(currentPanier)) {
+      currentPanier = [];
+    }
+
     const newPanier = [...currentPanier, Data];
-
-    // Mettre à jour le localStorage avec le nouveau panier
-    localStorage.setItem('panier', JSON.stringify(newPanier));
-
-    setIsAddedToCart(true);
-  };
+    
+      localStorage.setItem('panier', JSON.stringify(newPanier));
+    
+      setIsAddedToCart(true);
+    };
 
 
   return (
