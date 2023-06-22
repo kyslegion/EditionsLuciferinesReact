@@ -1,17 +1,34 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState,useEffect } from 'react';
 
 export const PanierContext = createContext();
 
-export function usePanier() {
-    return useContext(PanierContext);
-}
+export const PanierProvider = ({ children }) => {
+  const [panier, setPanier] = useState([]);
+  let test=68;
 
-export default function PanierProvider({ children }) {
-    const [panier, setPanier] = useState([]);
+  const ajouterAuPanier = (article) => {
+    setPanier([...panier, article]);
+  };
 
-    return (
-        <PanierContext.Provider value={{ panier, setPanier }}>
-            {children}
-        </PanierContext.Provider>
-    );
-}
+  useEffect(() => {
+    const updatePanier = () => {
+      const a = localStorage.getItem('panier');
+      if (a) {
+        const b = JSON.parse(a);
+        if (Array.isArray(b)) {
+          setPanier(b);
+        } else {
+          console.error('Data retrieved from localStorage is not an array');
+        }
+      }
+    };
+
+    updatePanier();
+  }, []);
+  
+  return (
+    <PanierContext.Provider value={{ panier, ajouterAuPanier,test }}>
+      {children}
+    </PanierContext.Provider>
+  );
+};

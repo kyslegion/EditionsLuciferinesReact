@@ -1,4 +1,4 @@
-import './page1.css'
+import './Accueil.css'
 import React, { useEffect, useState } from 'react';
 import Layout from '../layout/layout';
 import GetBook from '../component/getBook';
@@ -7,7 +7,7 @@ import GestionnaireJson from '../component/gestionnaireJson';
 
 
 
-function Page1({ panier, setPanier }) {
+function Accueil({ panier, setPanier }) {
   const [visible,setVisible]=useState(true);
   const [selectedData, setselectedData] = useState(null); 
   // const [panier, setPanier] = useState([]);
@@ -44,4 +44,4 @@ function Page1({ panier, setPanier }) {
    
   );
 }
-export default Page1;
+export default Accueil;

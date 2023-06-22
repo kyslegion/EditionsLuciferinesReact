@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./layout.css";
-
+// import ChildComponent from '../component/ChildComponent'; 
+import { PanierProvider } from '../component/PanierContext';
 export default function Layout({ children, changeState2 }) {
   const [panier, setPanier] = useState([]);
   const [showPanier, setShowPanier] = useState(false);
@@ -18,19 +19,18 @@ export default function Layout({ children, changeState2 }) {
         }
       }
     };
-  
+
     // Update panier on mount
     updatePanier();
-  
+
     // Update panier when localStorage changes
     window.addEventListener('storage', updatePanier);
-  
+
     // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener('storage', updatePanier);
     };
-  }, [panier]); // Ajout de panier comme dépendance
-  
+  }, []); // panier removed from dependencies
 
 
   const removeFromPanier = (id) => {
@@ -107,7 +107,11 @@ export default function Layout({ children, changeState2 }) {
       </>
     )}
   </ul>
-      <main >{children}</main>
+      <main >
+        <PanierProvider>
+          {children}
+        </PanierProvider>
+      </main>
 
       <footer>
         <p>© 2023 Éditions Luciférines</p>

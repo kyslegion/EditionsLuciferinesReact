@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './page2.css'
+import './RecapitulatifAchat.css'
 import { Link } from 'react-router-dom';
 // Importer les composants nécessaires de PayPal
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
